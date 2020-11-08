@@ -193,7 +193,29 @@
       ReactDOM.render(conteudo, root);
     }
 
-    setInterval(Tempo, 1000);
+    // setInterval(Tempo, 1000);
+  </script>
+  
+  <script type="text/babel"> // INLINE STYLING nos COMPONENTs
+    class AppTest3 extends React.Component {
+      render() {
+        const inlineStyle = {
+          color: "red",
+          backgroundColor: "yellow",
+          padding: "20px",
+          fontWeight: 600,
+          fontFamily: 'sans-serif'
+        }
+       
+        return(
+          <div>
+            <p style={ inlineStyle }>Texto com inline styling!</p>  
+          </div>
+        );
+      }
+    }
+    
+    ReactDOM.render(<AppTest3 />, root);
   </script>
 </body>
 </html>
