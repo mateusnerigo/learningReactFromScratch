@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React Básico</title>
+
+  <style>
+    .red {
+      background-color: red;
+      color: white;
+      padding: 10px;
+    }
+
+    .green {
+      background-color: green;
+      color: white;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script 
+    crossorigin 
+    src="https://unpkg.com/react@17/umd/react.development.js">
+  </script>
+  
+  <script 
+    crossorigin 
+    src="https://unpkg.com/react-dom@17/umd/react-dom.development.js">
+  </script>
+  
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  
+  <script type="text/babel"> // renderizar com texto
+    const root = document.getElementById('root');
+    // ReactDOM.render('teste', root);
+  </script>
+
+  <script type="text/babel"> // renderizar com HTML
+    let name = 'Mateus Neri';
+    // ReactDOM.render(<h1>Tag Rendering: O meu nome é {name}</h1>, root);
+  </script>
+
+  <script type="text/babel"> // renderizar com COMPONENT
+    function MyComponent() {
+      let name = 'Mateus Doido';
+
+      return (
+        <div>
+          <h1> MyComponent: Meu nome é {name}!</h1>
+        </div>
+      )
+    }
+    // ReactDOM.render(<MyComponent/>, root);
+  </script>
+
+  <script type="text/babel"> // renderizar com CLASS COMPONENT
+    class CompA extends React.Component {
+      render() {
+        return(<h3>CompA</h3>);
+      }
+    }
+    
+    class CompB extends React.Component {
+      render() {
+        return(<h3>CompB</h3>);
+      }
+    }
+
+    class MyClassComponent extends React.Component {
+      render() {
+        return(
+          <div>
+            <CompA />
+            <hr />
+            <CompB />
+          </div>
+        );
+      }
+    }
+    // ReactDOM.render(<MyClassComponent/>, root);
+  </script>
+
+  <script type="text/babel"> // renderizar com PROPS
+    function CompC(props) {
+      return(
+        <div>
+          <p>Olá, {props.name} {props.nick}.</p>
+        </div>
+      );  
+    }
+    // ReactDOM.render(<CompC name="Mateus" nick="Neri" />, root);
+  </script>
+
+  <script type="text/babel"> // renderizar com CLASS PROPS
+    class CompD extends React.Component {
+      render() {
+        return(
+          <div>
+            <p>Olá novamente, {this.props.name} {this.props.nick}</p>
+          </div>
+        );
+      }
+    }
+    // ReactDOM.render(<CompD name="Mateus" nick="Neri" />, root);
+  </script>
+
+  <script type="text/babel"> // renderizar com PROPS II
+    function CompE(props) {
+      return(
+        <div>
+          <p>Nome: {props.name}</p>
+        </div>
+      )
+    }
+
+    function AppTest1() {
+      return(
+        <div>
+          <CompE name="Mateus" />
+          <CompE name="Laíssi" />
+          <CompE name="Elisabete" />
+          <CompE name="Alessandro" />
+        </div>
+      );
+    }
+    // ReactDOM.render(<AppTest1 />, root);
+  </script>
+
+  <script type="text/babel"> // renderizar com PROPS e OPERAÇÕES
+    class Adicao extends React.Component {
+      render() {
+        return(
+          <div>
+            <p>
+              O resultado de {this.props.a} + {this.props.b} = {this.props.a + this.props.b}
+            </p>
+          </div>
+        );
+      }
+    }
+    // ERRADO 
+    // ReactDOM.render(<Adicao a="2" b="4" />, root);
+    // ReactDOM.render(<Adicao a={2} b={4} />, root);
+  </script>
+
+  <script type="text/babel"> // renderizar com ESTILIZAÇÕES
+    class CompA extends React.Component {
+      render() {
+        return(
+          <div className="red">
+            <p>Texto do CompA</p>
+          </div>
+        );
+      }
+    }
+
+    class CompB extends React.Component {
+      render() {
+        
+      }
+    }
+  </script>
+</body>
+</html>
