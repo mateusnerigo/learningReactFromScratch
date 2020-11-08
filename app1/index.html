@@ -148,7 +148,7 @@
   </script>
 
   <script type="text/babel"> // renderizar com ESTILIZAÇÕES
-    class CompA extends React.Component {
+    class CompF extends React.Component {
       render() {
         return(
           <div className="red">
@@ -158,11 +158,42 @@
       }
     }
 
-    class CompB extends React.Component {
+    class CompG extends React.Component {
       render() {
-        
+        return(
+          <div className="green">
+            <p>Texto do CompB</p>
+          </div>
+        );
       }
     }
+
+    class AppTest2 extends React.Component {
+      render() {
+        return(
+          <div>
+            <CompF />  
+            <CompG />  
+          </div>
+        )
+      }
+    }
+    // ReactDOM.render(<AppTest2 />, root);
+  </script>
+
+  <script type="text/babel"> // rendizar o horário atual
+    function Tempo() {
+      const conteudo = (
+        <div>
+          <h3>Tempo Atual</h3>
+          <p>{new Date().toLocaleTimeString()}</p>
+        </div>
+      );
+
+      ReactDOM.render(conteudo, root);
+    }
+
+    setInterval(Tempo, 1000);
   </script>
 </body>
 </html>
